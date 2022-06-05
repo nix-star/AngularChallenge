@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center mt-2">Hero login</h1>
+        <form action="" class="mt-2" [formGroup]="heroForm" (ngSubmit)="onSubmit($event)">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" 
+                    placeholder="name@example.com" formControlName="email">
+                <p *ngIf="showEmailRequire" class="text-danger">Email required</p>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleFormControlInput2"
+                    formControlName="password">
+                <p *ngIf="showPassRequire" class="text-danger">Password required</p>
+            </div>
+            <p *ngIf="showInvalid" class="text-danger">Email or password incorrects</p>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</div>
