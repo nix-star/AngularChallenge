@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: "full" },
@@ -18,7 +20,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HeroListComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,

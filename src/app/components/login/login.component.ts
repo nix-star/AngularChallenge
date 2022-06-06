@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     let validCredentials: boolean = !this.showPassRequire && !this.showPassRequire;
 
     if(validCredentials){
-      this.api.getToken({
+      this.api.generateToken({
         "email": this.Email!.value,
         "password": this.Pass!.value
       }).subscribe(token =>{
