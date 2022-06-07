@@ -1,4 +1,9 @@
-<h2 class="h2 fw-bold text-primary text-center">Hall of Heroes</h2>
+<h2 class="h2 fw-bold text-primary text-center">Hero Team</h2>
 <div class="row">
-    <app-hero *ngFor="let id of herosId" [heroId]="id" class="col"></app-hero>
+    <app-hero 
+        class="col"
+        *ngFor="let id of herosId; let i = index" 
+        [heroId]="id"
+        (heroDeletion)="delete(i)">
+    </app-hero>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Hero } from 'src/app/interfaces';
 import { ApiService } from 'src/app/services/api.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class HeroComponent implements OnInit {
 
   @Input() heroId: number;
+  @Output() heroDeletion: EventEmitter<Event> = new EventEmitter<Event>();
   hero: Hero;
 
   constructor(private api: ApiService, public modal: NgbModal) { }
@@ -33,6 +34,8 @@ export class HeroComponent implements OnInit {
     return val.toString()+'%';
   }
 
-
+  delete(event: Event): void {
+    this.heroDeletion.emit(event);
+  }
 
 }
