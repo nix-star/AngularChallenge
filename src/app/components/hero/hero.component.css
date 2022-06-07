@@ -38,6 +38,17 @@
     font-size: 15px;
 }
 
+.bar-ext {
+    background-color: red;
+    height: 5px;
+    width: 100%;
+}
+
+.bar-int {
+    background-color: green;
+    height: 100%;
+}
+
 @media (max-width: 286px){
 
     .card {

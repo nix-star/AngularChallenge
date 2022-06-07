@@ -28,6 +28,11 @@ export class HeroComponent implements OnInit {
       this.hero.name: this.hero.biography['full-name'];
   }
 
+  statVal(val: any): string {
+    if(val ==='null') return '0%';
+    return val.toString()+'%';
+  }
+
 
 
 }
