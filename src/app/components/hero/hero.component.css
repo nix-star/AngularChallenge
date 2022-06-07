@@ -1,0 +1,25 @@
+.card {
+    width: 18rem;
+}
+
+.img-container {
+    height: 24rem;
+    width: 100%;
+}
+
+.img-container .card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 286px){
+
+    .card {
+        width: 12rem;       
+    }
+
+    .img-container {
+        height: 16rem;
+    }
+}

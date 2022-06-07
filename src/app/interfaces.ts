@@ -8,22 +8,43 @@ export interface Credentials {
 }
 
 export interface Hero {
-    id: number;
-    name: string;
-    fullName: string;
-    alias: string[];
-    image: string;
-    workplace: string;
-    height: string,
-    weight: string,
-    eyesColor: string;
-    hairColor: string;
+    response: string,
+    id: number,
+    name: string,
     powerstats: {
-        intelligence: number|null,
-        strength: number|null,
-        speed: number|null,
-        durability: number|null,
-        power: number|null,
-        combat: number|null
+        "intelligence": number|string,
+        "strength": number|string,
+        "speed": number|string,
+        "durability": number,
+        "power": number,
+        "combat": number
+    },
+    biography: {
+        "full-name": string,
+        "alter-egos": string,
+        "aliases": string[],
+        "place-of-birth": string,
+        "first-appearance": string,
+        "publisher": string,
+        "alignment": string
+    },
+    appearance: {
+        "gender": string,
+        "race": string|null,
+        "height": string[],
+        "weight": string[],
+        "eye-color": string,
+        "hair-color": string
+    },
+    work: {
+        "occupation": string,
+        "base": string
+    },
+    connections: {
+        "group-affiliation": string,
+        "relatives": string
+    },
+    image: {
+        "url": "https://www.superherodb.com/pictures2/portraits/10/100/1340.jpg"
     }
 }

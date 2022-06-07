@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Hero } from 'src/app/interfaces';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -9,16 +9,19 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class HeroComponent implements OnInit {
 
+  @Input() heroId: number;
   hero: Hero;
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.setHero(this.heroId);
   }
 
   setHero(id: number): void {
     this.api.getHeroById(id).subscribe(hero => this.hero = hero);
-
   }
+
+
 
 }

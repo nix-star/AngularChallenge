@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroListComponent implements OnInit {
 
-  herosId: number[];
+  herosId: number[] = [20, 45, 500, 322, 128, 256];
 
   constructor() { }
 
