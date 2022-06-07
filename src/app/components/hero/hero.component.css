@@ -7,10 +7,35 @@
     width: 100%;
 }
 
-.img-container .card-img-top {
+.img-container-mini {
+    height: auto;
+    width: 9rem;
+}
+
+
+.img-container .card-img-top, .img-container-mini img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+#details {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    cursor: pointer;
+}
+
+.details .my-0 {
+    font-size: 13px;
+}
+
+.details .alias {
+    font-size: 15px;
 }
 
 @media (max-width: 286px){

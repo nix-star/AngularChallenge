@@ -3,13 +3,38 @@
         <img class="card-img-top" src="{{hero.image.url}}" alt="{{hero.name}}" title="{{hero.name}}">
     </div>
     <div class="card-body">
-      <h5 class="card-title text-secondary">{{hero.name}}</h5>
+      <h5 class="card-title text-secondary fw-bold">{{hero.name}}</h5>
       <div class="row">
         <p *ngFor="let stat of hero.powerstats | keyvalue" class="card-text col-sm-6">
             <span class="fw-bold">{{stat.key}}</span>: {{stat.value === "null"? 0: stat.value}}</p>
       </div>
       
-      <button class="btn btn-primary">Details</button>
+      <button class="btn btn-primary" (click)="modal.open(details)">Details</button>
       <button class="btn btn-danger">Delete</button>
     </div>
   </div>
+
+  <ng-template #details let-modal>
+      <!-- <div class="modal-header"></div> -->
+      <div class="modal-body row">
+          <div class="img-container-mini col-4">
+            <img src="{{hero.image.url}}" alt="{{hero.name}}">
+          </div>
+          <div class="details col-8">
+              <p class="text-primary fw-bold my-1">{{getFullName()}}</p>
+              <p class="fst-italic my-1 alias">{{hero.biography.aliases}}</p>
+              <p class="my-0">Weight: {{hero.appearance.weight}}</p>
+              <p class="my-0">Height: {{hero.appearance.height}}</p>
+              <p class="my-0">Eyes: {{hero.appearance['eye-color']}}</p>
+              <p class="my-0">Hair: {{hero.appearance['hair-color']}}</p>
+              <p class="my-0">Workspace: {{hero.work.base}}</p>
+          </div>
+      </div>
+      <span class="close" (click)="modal.dismiss()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+    </span>
+<!--       <div class="modal-footer"></div> -->
+  </ng-template>
