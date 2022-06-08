@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("heroToken") !== null) this.router.navigate(["index"]);
     this.createForm();
   }
 
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.showInvalid = false;
     this.showEmailRequire = this.Email!.value.length === 0? true: false; 
     this.showPassRequire = this.Pass!.value.length === 0? true: false;
-    let validCredentials: boolean = !this.showPassRequire && !this.showPassRequire;
+    let validCredentials: boolean = !this.showEmailRequire && !this.showPassRequire;
 
     if(validCredentials){
       this.api.generateToken({
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("heroToken", token.token);
         this.router.navigate(["index"]);
       });
-      this.showInvalid = true;        
+      this.showInvalid = localStorage.getItem("heroToken") === null? true: false;
     }
   }
 
